@@ -1,6 +1,5 @@
 package com.pattern.lambda;
 
-import java.sql.SQLOutput;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -25,14 +24,9 @@ public class Demo {
 
         // Function 将T映射成R
         Function<Integer, String> integerStringFunction =
-            i -> {
-                String str = "将Integer映射成String:" + i;
-                return str;
-            };
+            i -> "将Integer映射成String:" + i;
 
         System.out.println(integerStringFunction.apply(1));
-
-        // Supplier 生产消息：工厂方法实现
     }
 
 

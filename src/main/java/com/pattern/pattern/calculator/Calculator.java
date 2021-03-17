@@ -1,9 +1,19 @@
 package com.pattern.pattern.calculator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author lihui
  */
 public class Calculator {
+
+    public static final Map<String, MultipleParamFunction<Integer, Integer, Integer>> FUNCTION_MAP = new HashMap<>();
+
+    static {
+        FUNCTION_MAP.put("add", Integer::sum);
+        FUNCTION_MAP.put("multiply", (x, y) -> x * y);
+    }
 
     public int ifCalculate(int a, int b, String operator) {
         int result = Integer.MIN_VALUE;
@@ -34,6 +44,10 @@ public class Calculator {
         return result;
     }
 
+    public int functionCalculate(int a, int b, String operator) {
+        return FUNCTION_MAP.get(operator).apply(a, b);
+    }
+
     /**
      * 卫语句
      */
@@ -47,5 +61,7 @@ public class Calculator {
 
         throw new IllegalArgumentException("illegal operator");
     }
+
+
 
 }
