@@ -13,29 +13,26 @@ import com.pattern.leetcode.simple.general.ListNode;
  * @time 2021/5/19 7:39 下午
  */
 public class No22 {
-
-    class Solution {
-        public ListNode getKthFromEnd(ListNode head, int k) {
-            if (head == null) {
-                return null;
-            }
-
-            int size = 0;
-            ListNode temp = head;
-            while(temp != null) {
-                temp = temp.getNext();
-                size ++;
-            }
-            int kthFromStart = size + 1 - k;
-
-            ListNode node = head;
-            kthFromStart --;
-            while(kthFromStart!=0) {
-                node = node.getNext();
-                kthFromStart--;
-            }
-            return node;
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        if (head == null) {
+            return null;
         }
+
+        int size = 0;
+        ListNode temp = head;
+        while(temp != null) {
+            temp = temp.getNext();
+            size ++;
+        }
+        int kthFromStart = size + 1 - k;
+
+        ListNode node = head;
+        kthFromStart --;
+        while(kthFromStart!=0) {
+            node = node.getNext();
+            kthFromStart--;
+        }
+        return node;
     }
 
 }
