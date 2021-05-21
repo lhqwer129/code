@@ -1,6 +1,8 @@
 package com.pattern.offer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,8 +34,26 @@ public class No57 {
         return result;
     }
 
+    // todo: copy
     public int[][] findContinuousSequence(int target) {
-        return null;
+        List<int[]> vec = new ArrayList<int[]>();
+
+        for (int l = 1, r = 2; l < r;) {
+            int sum = (l + r) * (r - l + 1) / 2;
+            if (sum == target) {
+                int[] res = new int[r - l + 1];
+                for (int i = l; i <= r; ++i) {
+                    res[i - l] = i;
+                }
+                vec.add(res);
+                l ++;
+            } else if (sum < target) {
+                r ++;
+            } else {
+                l ++;
+            }
+        }
+        return vec.toArray(new int[vec.size()][]);
     }
 
 }
