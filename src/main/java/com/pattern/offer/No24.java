@@ -11,7 +11,24 @@ import com.pattern.leetcode.simple.general.ListNode;
  */
 public class No24 {
 
+    /**
+     * 递归
+     */
     public static ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode listNode = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return listNode;
+    }
+
+    /**
+     * 非递归
+     */
+    public static ListNode reverseList1(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
