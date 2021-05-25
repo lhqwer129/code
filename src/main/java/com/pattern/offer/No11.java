@@ -13,6 +13,9 @@ package com.pattern.offer;
  */
 public class No11 {
 
+    /**
+     * 根据查找旋转数组最小值的目的，通过相关逻辑不断缩小low,high区间，知道low == high，退出循环，区间最后一个元素即我们要找的最小值
+     */
     public int minArray(int[] numbers) {
         int low = 0;
         int high = numbers.length - 1;
