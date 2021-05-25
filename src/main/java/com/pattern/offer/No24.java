@@ -33,10 +33,16 @@ public class No24 {
             return head;
         }
 
-        ListNode listNode = reverseList(head.next);
-        head.next.next = head;
-        head.next = null;
-        return listNode;
+        ListNode cur = null;
+        ListNode pre = head;
+        while(pre != null) {
+            ListNode temp = pre.next;
+            pre.next = cur;
+            cur = pre;
+            pre = temp;
+        }
+
+        return cur;
     }
 
     public static void main(String[] args) {
