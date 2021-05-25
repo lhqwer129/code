@@ -8,20 +8,21 @@ package com.pattern.offer;
  * @time 2021/5/25 10:43 上午
  */
 public class No14 {
+    private boolean[][] visited;
 
     public int movingCount(int m, int n, int k) {
-        boolean[][] visited = new boolean[m][n];
-        return dfs(visited, m , n, 0, 0, k);
+        visited = new boolean[m][n];
+        return dfs(m , n, 0, 0, k);
     }
 
-    private int dfs(boolean[][] visited, int m, int n, int i, int j, int k) {
+    private int dfs(int m, int n, int i, int j, int k) {
         // 边界条件判断
-        if (i >= m || j >= m || visited[i][j] || (sum(i) + sum(j) > k)) {
+        if (i >= m || j >= n || visited[i][j] || (sum(i) + sum(j) > k)) {
             return 0;
         }
 
         visited[i][j] = true;
-        return 1 + dfs(visited, m, n, i+1, j, k) + dfs(visited, m, n, i, j + 1, k);
+        return 1 + dfs(m, n, i+1, j, k) + dfs(m, n, i, j + 1, k);
     }
 
     private int sum(int n) {
