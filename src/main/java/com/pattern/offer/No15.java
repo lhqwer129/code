@@ -17,7 +17,6 @@ public class No15 {
             n >>>=1;
         }
         return sum;
-
     }
 
 }
