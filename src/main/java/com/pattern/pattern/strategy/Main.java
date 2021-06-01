@@ -8,7 +8,7 @@ package com.pattern.pattern.strategy;
  *  1、策略: 定义实现策略需要的接口
  *  2、具体策略：通过不同方法实现策略类定义的方法
  *  3、context上下文：负责使用策略的类
- *
+ *s
  *  context与strategy是组合的关系，
  *
  *
