@@ -24,7 +24,6 @@ public class No42 {
             nums[i] += Math.max(nums[i-1], 0);
             max = Math.max(nums[i], max);
         }
-        Object
         return max;
     }
 
