@@ -1,5 +1,8 @@
 package com.pattern.pattern.strategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Description: 策略模式
  * 策略在编程中可以理解为算法，针对同一个问题，策略模式的目的是实现整体策略部分的替换，已不同的策略（算法）来解决问题

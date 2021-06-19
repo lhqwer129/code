@@ -99,7 +99,7 @@ public class RedisDistributeLock {
 
     /**
      * 根据loopTryTime循环重试获取锁
-     * 可重入
+     * 可重试
      *
      * @param lockKey     锁key
      * @param lockVal     锁值，用于解锁校验

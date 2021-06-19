@@ -2,6 +2,7 @@ package com.pattern.offer;
 
 import com.pattern.leetcode.medium.TreeNode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -41,4 +42,62 @@ public class No32 {
         }
         return collectionArray;
     }
+
+    public List<List<Integer>> levelOrder1(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        List<List<Integer>> levelOrders = new ArrayList<>();
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.add(root);
+        while(!nodeQueue.isEmpty()) {
+            List<Integer> list = new ArrayList<>();
+
+            for (int i = nodeQueue.size(); i > 0; i-- ) {
+                TreeNode treeNode = nodeQueue.poll();
+                list.add(treeNode.val);
+
+                if (treeNode.left != null) {
+                    nodeQueue.add(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    nodeQueue.add(treeNode.right);
+                }
+            }
+            levelOrders.add(list);
+        }
+        return levelOrders;
+    }
+
+    public List<List<Integer>> levelOrder2(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        List<List<Integer>> levelOrders = new ArrayList<>();
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.add(root);
+        while(!nodeQueue.isEmpty()) {
+            List<Integer> list = new ArrayList<>();
+
+            for (int i = nodeQueue.size(); i > 0; i-- ) {
+                TreeNode treeNode = nodeQueue.poll();
+                list.add(treeNode.val);
+
+                if (treeNode.left != null) {
+                    nodeQueue.add(treeNode.left);
+                }
+                if (treeNode.right != null) {
+                    nodeQueue.add(treeNode.right);
+                }
+            }
+            if ((levelOrders.size() & 1) == 1) {
+                Collections.reverse(list);
+            }
+            levelOrders.add(list);
+        }
+        return levelOrders;
+    }
+
 }
